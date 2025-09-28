@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Adoption - Sharma's Pet Nation</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="sticky-header">
+    <div class="header-container">
+      <div class="logo">Sharma's Pet Nation</div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="dogs.html">Dogs</a></li>
+          <li><a href="#">Cats</a></li>
+          <li><a href="available-pets.html">Available Pets</a></li>
+
+          <li><a href="adoption.html">Adoption</a></li>
+          <li><a href="shop.html">Shop</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="support.html" class="action-icon">📞 Support</a>
+        <a href="login.html" class="action-icon">👤 Login</a>
+        <input type="search" placeholder="Search for breeds..." />
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Section: How Adoption Works -->
+    <section class="content-section">
+      <h2>How the Adoption Process Works</h2>
+      <div class="steps-container">
+        <div class="step">
+          <div class="step-icon">1</div>
+          <h3>Browse Pets</h3>
+          <p>Explore available dogs and cats to find your perfect companion.</p>
+        </div>
+        <div class="step">
+          <div class="step-icon">2</div>
+          <h3>Submit Application</h3>
+          <p>Fill out the simple adoption request form with your preferences.</p>
+        </div>
+        <div class="step">
+          <div class="step-icon">3</div>
+          <h3>Home Delivery</h3>
+          <p>We deliver your new pet safely to your doorstep after approval.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Adoptable Pets -->
+    <section class="content-section bg-light">
+      <h2>Adoptable Pets</h2>
+      <div class="pet-grid">
+        <article class="pet-card">
+          <img src="https://i.imgur.com/C5B09na.png" alt="Birchy the Persian Cat">
+          <div class="pet-info">
+            <h3>Birchy</h3>
+            <div class="pet-details">
+              <span>Breed: Persian Cat</span>
+              <span>Gender: Female</span>
+              <span>Age: 12 weeks</span>
+            </div>
+          </div>
+        </article>
+        <article class="pet-card">
+          <img src="Toy Pom.jpg" alt="Charlie the Toy Pom">
+          <div class="pet-info">
+            <h3>Charlie</h3>
+            <div class="pet-details">
+              <span>Breed: Toy Pom</span>
+              <span>Gender: Male</span>
+              <span>Age: 12 weeks</span>
+            </div>
+          </div>
+        </article>
+        <article class="pet-card">
+          <img src="Poodle.jpg" alt="Harry the Poodle">
+          <div class="pet-info">
+            <h3>Harry</h3>
+            <div class="pet-details">
+              <span>Breed: Poodle</span>
+              <span>Gender: Male</span>
+              <span>Age: 8 weeks</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Section: Adoption Form -->
+    <section class="content-section">
+      <h2>Adoption Request Form</h2>
+      <form id="adoptionForm" class="support-form" style="max-width: 700px; margin: 0 auto;">
+        <input type="text" name="name" placeholder="Your Full Name" required>
+        <input type="email" name="email" placeholder="Email Address" required>
+        <input type="text" name="phone" placeholder="Phone Number" required>
+        <select name="preferred_pet">
+          <option value="">Select Preferred Pet</option>
+          <option value="Birchy">Birchy (Persian Cat)</option>
+          <option value="Charlie">Charlie (Toy Pom)</option>
+          <option value="Harry">Harry (Poodle)</option>
+        </select>
+        <textarea name="message" rows="6" placeholder="Tell us why you want to adopt this pet..." required></textarea>
+        <button type="submit" class="btn btn-primary">Submit Application</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <div class="social-links">
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">WhatsApp</a>
+      </div>
+      <p>Copyright © 2025 Sharma's Pet Nation. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shop - Sharma's Pet Nation</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="sticky-header">
+    <div class="header-container">
+      <div class="logo">Sharma's Pet Nation</div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="dogs.html">Dogs</a></li>
+          <li><a href="cats.html">Cats</a></li>
+          <li><a href="available-pets.html">Available Pets</a></li>
+          <li><a href="adoption.html">Adoption</a></li>
+          <li><a href="shop.html">Shop</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="support.html" class="action-icon">📞 Support</a>
+        <a href="admin.html" class="action-icon">👤 Admin Login</a>
+        <a href="#" class="action-icon" id="cart-icon">🛒 Cart (<span id="cart-count">0</span>)</a>
+        <input type="search" placeholder="Search for breeds..." />
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="content-section">
+      <h2>Welcome to Our Pet Shop</h2>
+      <p style="text-align:center; max-width: 800px; margin: 0 auto;">
+        Discover high-quality pet food, toys, grooming tools, and accessories that keep your furry friend happy and healthy.
+      </p>
+
+      <div class="breed-grid">
+        <!-- Shop Item 1 -->
+        <div class="breed-card" data-product="dog-toy" data-price="299">
+          <img src="https://i.imgur.com/6L0fQxw.jpeg" alt="Dog Toy">
+          <h3>Chewable Dog Toy</h3>
+          <p>Durable rubber toy for endless fun.</p>
+          <div class="product-price">₹299</div>
+          <button class="btn btn-primary add-to-cart" data-product="dog-toy" data-name="Chewable Dog Toy" data-price="299">Add to Cart</button>
+        </div>
+        <!-- Shop Item 2 -->
+        <div class="breed-card" data-product="cat-food" data-price="599">
+          <img src="https://i.imgur.com/ptVqErD.jpeg" alt="Cat Food">
+          <h3>Premium Cat Food</h3>
+          <p>Nutritious and vet-approved dry food.</p>
+          <div class="product-price">₹599</div>
+          <button class="btn btn-primary add-to-cart" data-product="cat-food" data-name="Premium Cat Food" data-price="599">Add to Cart</button>
+        </div>
+        <!-- Shop Item 3 -->
+        <div class="breed-card" data-product="pet-shampoo" data-price="399">
+          <img src="https://i.imgur.com/MKVnZAC.jpeg" alt="Pet Shampoo">
+          <h3>Organic Pet Shampoo</h3>
+          <p>Keep your pet's coat clean and shiny.</p>
+          <div class="product-price">₹399</div>
+          <button class="btn btn-primary add-to-cart" data-product="pet-shampoo" data-name="Organic Pet Shampoo" data-price="399">Add to Cart</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Cart Modal -->
+  <div id="cart-modal" class="cart-modal" style="display: none;">
+    <div class="cart-content">
+      <div class="cart-header">
+        <h2>Your Cart</h2>
+        <span class="close-cart">&times;</span>
+      </div>
+      <div class="cart-items" id="cart-items">
+        <!-- Cart items will be populated here -->
+      </div>
+      <div class="cart-footer">
+        <div class="cart-total">
+          <strong>Total: ₹<span id="cart-total">0</span></strong>
+        </div>
+        <button class="btn btn-primary" id="checkout-btn">Checkout</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-container">
+      <div class="social-links">
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">WhatsApp</a>
+      </div>
+      <p>Copyright © 2025 Sharma's Pet Nation. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Cart functionality
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+    // Update cart count display
+    function updateCartCount() {
+      const count = cart.reduce((total, item) => total + item.quantity, 0);
+      document.getElementById('cart-count').textContent = count;
+    }
+    
+    // Add to cart
+    document.addEventListener('click', function(e) {
+      if (e.target.classList.contains('add-to-cart')) {
+        const product = e.target.dataset.product;
+        const name = e.target.dataset.name;
+        const price = parseInt(e.target.dataset.price);
+        
+        // Check if item already exists in cart
+        const existingItem = cart.find(item => item.product === product);
+        
+        if (existingItem) {
+          existingItem.quantity += 1;
+        } else {
+          cart.push({
+            product: product,
+            name: name,
+            price: price,
+            quantity: 1
+          });
+        }
+        
+        // Save to localStorage
+        localStorage.setItem('cart', JSON.stringify(cart));
+        
+        // Update cart count
+        updateCartCount();
+        
+        // Show success message
+        showNotification(`${name} added to cart!`, 'success');
+      }
+    });
+    
+    // Show cart modal
+    document.getElementById('cart-icon').addEventListener('click', function(e) {
+      e.preventDefault();
+      showCartModal();
+    });
+    
+    // Close cart modal
+    document.querySelector('.close-cart').addEventListener('click', function() {
+      document.getElementById('cart-modal').style.display = 'none';
+    });
+    
+    // Close modal when clicking outside
+    document.getElementById('cart-modal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        this.style.display = 'none';
+      }
+    });
+    
+    // Show cart modal
+    function showCartModal() {
+      const modal = document.getElementById('cart-modal');
+      const cartItems = document.getElementById('cart-items');
+      const cartTotal = document.getElementById('cart-total');
+      
+      // Clear previous items
+      cartItems.innerHTML = '';
+      
+      if (cart.length === 0) {
+        cartItems.innerHTML = '<p>Your cart is empty</p>';
+        cartTotal.textContent = '0';
+      } else {
+        let total = 0;
+        
+        cart.forEach((item, index) => {
+          const itemTotal = item.price * item.quantity;
+          total += itemTotal;
+          
+          const cartItem = document.createElement('div');
+          cartItem.className = 'cart-item';
+          cartItem.innerHTML = `
+            <div class="cart-item-info">
+              <h4>${item.name}</h4>
+              <p>₹${item.price} x ${item.quantity}</p>
+            </div>
+            <div class="cart-item-controls">
+              <button class="btn btn-small" onclick="updateQuantity(${index}, -1)">-</button>
+              <span>${item.quantity}</span>
+              <button class="btn btn-small" onclick="updateQuantity(${index}, 1)">+</button>
+              <button class="btn btn-small btn-danger" onclick="removeFromCart(${index})">Remove</button>
+            </div>
+            <div class="cart-item-total">₹${itemTotal}</div>
+          `;
+          cartItems.appendChild(cartItem);
+        });
+        
+        cartTotal.textContent = total;
+      }
+      
+      modal.style.display = 'block';
+    }
+    
+    // Update quantity
+    function updateQuantity(index, change) {
+      cart[index].quantity += change;
+      
+      if (cart[index].quantity <= 0) {
+        cart.splice(index, 1);
+      }
+      
+      localStorage.setItem('cart', JSON.stringify(cart));
+      updateCartCount();
+      showCartModal();
+    }
+    
+    // Remove from cart
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      updateCartCount();
+      showCartModal();
+    }
+    
+    // Checkout
+    document.getElementById('checkout-btn').addEventListener('click', function() {
+      if (cart.length === 0) {
+        alert('Your cart is empty!');
+        return;
+      }
+      
+      const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+      alert(`Checkout functionality coming soon! Total: ₹${total}`);
+    });
+    
+    // Show notification
+    function showNotification(message, type = 'info') {
+      const notification = document.createElement('div');
+      notification.className = `notification notification-${type}`;
+      notification.textContent = message;
+      
+      const colors = {
+        success: '#4CAF50',
+        error: '#f44336',
+        warning: '#ff9800',
+        info: '#2196F3'
+      };
+      
+      notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: ${colors[type] || colors.info};
+        color: white;
+        padding: 15px 20px;
+        border-radius: 5px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        z-index: 10000;
+        max-width: 300px;
+        word-wrap: break-word;
+      `;
+      
+      document.body.appendChild(notification);
+      
+      setTimeout(() => {
+        if (notification.parentNode) {
+          notification.remove();
+        }
+      }, 3000);
+    }
+    
+    // Initialize cart count on page load
+    updateCartCount();
+  </script>
+
+  <style>
+    .product-price {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--primary-color);
+      margin: 10px 0;
+    }
+    
+    .cart-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .cart-content {
+      background: white;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 600px;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+    
+    .cart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .close-cart {
+      font-size: 2rem;
+      cursor: pointer;
+      color: #999;
+    }
+    
+    .cart-items {
+      padding: 20px;
+    }
+    
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .cart-item-info h4 {
+      margin: 0 0 5px 0;
+      color: var(--secondary-color);
+    }
+    
+    .cart-item-info p {
+      margin: 0;
+      color: #666;
+    }
+    
+    .cart-item-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .cart-item-controls button {
+      padding: 5px 10px;
+      border: 1px solid #ddd;
+      background: white;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    
+    .cart-item-controls .btn-danger {
+      background: #f44336;
+      color: white;
+      border: none;
+    }
+    
+    .cart-item-total {
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+    
+    .cart-footer {
+      padding: 20px;
+      border-top: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .cart-total {
+      font-size: 1.2rem;
+    }
+    
+    .btn-small {
+      padding: 5px 10px;
+      font-size: 0.8rem;
+    }
+  </style>
+
+</body>
+</html>
