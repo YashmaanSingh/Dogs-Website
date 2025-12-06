@@ -103,7 +103,10 @@
     // Update cart count display
     function updateCartCount() {
       const count = cart.reduce((total, item) => total + item.quantity, 0);
-      document.getElementById('cart-count').textContent = count;
+      const countEl = document.getElementById('cart-count');
+      if (countEl) {
+        countEl.textContent = count;
+      }
     }
     
     // Add to cart
@@ -138,23 +141,33 @@
       }
     });
     
-    // Show cart modal
-    document.getElementById('cart-icon').addEventListener('click', function(e) {
-      e.preventDefault();
-      showCartModal();
-    });
+    // Show cart modal (if cart icon exists)
+    const cartIconEl = document.getElementById('cart-icon');
+    if (cartIconEl) {
+      cartIconEl.addEventListener('click', function(e) {
+        e.preventDefault();
+        showCartModal();
+      });
+    }
     
     // Close cart modal
-    document.querySelector('.close-cart').addEventListener('click', function() {
-      document.getElementById('cart-modal').style.display = 'none';
-    });
+    const closeCartEl = document.querySelector('.close-cart');
+    if (closeCartEl) {
+      closeCartEl.addEventListener('click', function() {
+        const modal = document.getElementById('cart-modal');
+        if (modal) modal.style.display = 'none';
+      });
+    }
     
     // Close modal when clicking outside
-    document.getElementById('cart-modal').addEventListener('click', function(e) {
-      if (e.target === this) {
-        this.style.display = 'none';
-      }
-    });
+    const cartModalEl = document.getElementById('cart-modal');
+    if (cartModalEl) {
+      cartModalEl.addEventListener('click', function(e) {
+        if (e.target === this) {
+          this.style.display = 'none';
+        }
+      });
+    }
     
     // Show cart modal
     function showCartModal() {
@@ -220,16 +233,19 @@
       showCartModal();
     }
     
-    // Checkout
-    document.getElementById('checkout-btn').addEventListener('click', function() {
-      if (cart.length === 0) {
-        alert('Your cart is empty!');
-        return;
-      }
-      
-      const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-      alert(`Checkout functionality coming soon! Total: ₹${total}`);
-    });
+    // Checkout (if button exists)
+    const checkoutBtn = document.getElementById('checkout-btn');
+    if (checkoutBtn) {
+      checkoutBtn.addEventListener('click', function() {
+        if (cart.length === 0) {
+          alert('Your cart is empty!');
+          return;
+        }
+
+        const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        alert(`Checkout functionality coming soon! Total: ₹${total}`);
+      });
+    }
     
     // Show notification
     function showNotification(message, type = 'info') {

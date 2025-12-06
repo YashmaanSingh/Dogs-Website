@@ -4,6 +4,7 @@ class PetNationApp {
         this.apiBaseUrl = 'http://localhost:5000/api';
         this.token = localStorage.getItem('token');
         this.currentUser = JSON.parse(localStorage.getItem('user') || 'null');
+        this.cart = JSON.parse(localStorage.getItem('cart') || '[]');
         
         this.init();
     }
@@ -13,6 +14,159 @@ class PetNationApp {
         this.updateNavigation();
         this.loadFeaturedPets();
         this.loadShopProducts();
+        this.initCart();
+    }
+
+    /* Cart functionality (shared across pages) */
+    initCart() {
+        // Ensure cart modal exists (some pages like shop.html may include it already)
+        this.createCartModalIfMissing();
+
+        // Update count on init
+        this.updateCartCount();
+
+        // Global click handler for add-to-cart buttons
+        document.addEventListener('click', (e) => {
+            const btn = e.target.closest && e.target.closest('.add-to-cart');
+            if (btn) {
+                e.preventDefault();
+                const product = btn.dataset.product || btn.closest('.breed-card')?.dataset.product || btn.closest('.pet-card')?.dataset.product || btn.getAttribute('data-product');
+                const name = btn.dataset.name || btn.getAttribute('data-name') || btn.closest('.breed-card')?.querySelector('h3')?.textContent || 'Item';
+                const price = parseInt(btn.dataset.price || btn.getAttribute('data-price') || btn.closest('.breed-card')?.dataset.price || '0');
+                this.addToCart(product, name, price);
+            }
+        });
+
+        // Cart icon click
+        const cartIcon = document.getElementById('cart-icon');
+        if (cartIcon) {
+            cartIcon.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.showCartModal();
+            });
+        }
+
+        // Expose functions for legacy inline handlers (if any)
+        window.updateQuantity = (index, change) => this.updateQuantity(index, change);
+        window.removeFromCart = (index) => this.removeFromCart(index);
+    }
+
+    createCartModalIfMissing() {
+        if (document.getElementById('cart-modal')) return;
+
+        const modal = document.createElement('div');
+        modal.id = 'cart-modal';
+        modal.className = 'cart-modal';
+        modal.style.display = 'none';
+        modal.innerHTML = `
+            <div class="cart-content">
+              <div class="cart-header">
+                <h2>Your Cart</h2>
+                <span class="close-cart">&times;</span>
+              </div>
+              <div class="cart-items" id="cart-items"></div>
+              <div class="cart-footer">
+                <div class="cart-total"><strong>Total: ₹<span id="cart-total">0</span></strong></div>
+                <button class="btn btn-primary" id="checkout-btn">Checkout</button>
+              </div>
+            </div>
+        `;
+        document.body.appendChild(modal);
+
+        // Close handlers
+        modal.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = 'none'; });
+        modal.querySelector('.close-cart')?.addEventListener('click', () => { modal.style.display = 'none'; });
+        modal.querySelector('#checkout-btn')?.addEventListener('click', () => {
+            if (this.cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+            const total = this.cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+            alert(`Checkout functionality coming soon! Total: ₹${total}`);
+        });
+    }
+
+    addToCart(product, name, price) {
+        if (!product) product = `item-${Date.now()}`;
+        const existing = this.cart.find(i => i.product === product);
+        if (existing) {
+            existing.quantity += 1;
+        } else {
+            this.cart.push({ product, name, price: Number(price) || 0, quantity: 1 });
+        }
+        localStorage.setItem('cart', JSON.stringify(this.cart));
+        this.updateCartCount();
+        this.showNotification(`${name} added to cart!`, 'success');
+    }
+
+    updateCartCount() {
+        const count = this.cart.reduce((total, item) => total + item.quantity, 0);
+        const el = document.getElementById('cart-count');
+        if (el) el.textContent = count;
+    }
+
+    showCartModal() {
+        this.createCartModalIfMissing();
+        const modal = document.getElementById('cart-modal');
+        const cartItems = document.getElementById('cart-items');
+        const cartTotal = document.getElementById('cart-total');
+        cartItems.innerHTML = '';
+        if (this.cart.length === 0) {
+            cartItems.innerHTML = '<p>Your cart is empty</p>';
+            if (cartTotal) cartTotal.textContent = '0';
+        } else {
+            let total = 0;
+            this.cart.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                const div = document.createElement('div');
+                div.className = 'cart-item';
+                div.innerHTML = `
+                    <div class="cart-item-info">
+                      <h4>${item.name}</h4>
+                      <p>₹${item.price} x ${item.quantity}</p>
+                    </div>
+                    <div class="cart-item-controls">
+                      <button class="btn btn-small" data-action="dec" data-index="${index}">-</button>
+                      <span>${item.quantity}</span>
+                      <button class="btn btn-small" data-action="inc" data-index="${index}">+</button>
+                      <button class="btn btn-small btn-danger" data-action="remove" data-index="${index}">Remove</button>
+                    </div>
+                    <div class="cart-item-total">₹${itemTotal}</div>
+                `;
+                cartItems.appendChild(div);
+            });
+            if (cartTotal) cartTotal.textContent = total;
+
+            // Attach controls
+            cartItems.querySelectorAll('[data-action]').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const action = btn.getAttribute('data-action');
+                    const idx = Number(btn.getAttribute('data-index'));
+                    if (action === 'dec') this.updateQuantity(idx, -1);
+                    if (action === 'inc') this.updateQuantity(idx, 1);
+                    if (action === 'remove') this.removeFromCart(idx);
+                });
+            });
+        }
+        if (modal) modal.style.display = 'block';
+    }
+
+    updateQuantity(index, change) {
+        if (!this.cart[index]) return;
+        this.cart[index].quantity += change;
+        if (this.cart[index].quantity <= 0) this.cart.splice(index,1);
+        localStorage.setItem('cart', JSON.stringify(this.cart));
+        this.updateCartCount();
+        this.showCartModal();
+    }
+
+    removeFromCart(index) {
+        if (!this.cart[index]) return;
+        this.cart.splice(index,1);
+        localStorage.setItem('cart', JSON.stringify(this.cart));
+        this.updateCartCount();
+        this.showCartModal();
     }
 
     setupEventListeners() {
@@ -133,7 +287,7 @@ class PetNationApp {
             phone: formData.get('phone'),
             preferredPet: formData.get('preferred_pet'),
             message: formData.get('message'),
-            userId: this.currentUser.id
+            userId: this.currentUser ? this.currentUser.id : null
         };
 
         try {
@@ -329,7 +483,7 @@ class PetNationApp {
         menu.className = 'user-menu';
         menu.innerHTML = `
             <div class="user-menu-content">
-                <h4>Welcome, ${this.currentUser.fullName || this.currentUser.username}!</h4>
+                <h4>Welcome, ${(this.currentUser && (this.currentUser.fullName || this.currentUser.username)) || 'Guest'}!</h4>
                 <a href="#" onclick="app.viewProfile()">View Profile</a>
                 <a href="#" onclick="app.viewOrders()">My Orders</a>
                 <a href="#" onclick="app.viewAdoptions()">My Adoptions</a>
