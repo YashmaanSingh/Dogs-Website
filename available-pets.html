@@ -1,126 +1,258 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Available Pets - Sharma's Pet Nation</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
+  <!-- Floating Contact Sidebar -->
+  <div class="floating-contact">
+    <a href="tel:+918882845702" class="floating-btn call">
+      📞 Call
+    </a>
+    <a href="https://wa.me/918882845702" target="_blank" class="floating-btn whatsapp">
+      💬 WhatsApp
+    </a>
+    <a href="support.html" class="floating-btn">
+      📧 Inquiry
+    </a>
+  </div>
+
+  <!-- Header -->
   <header class="sticky-header">
+    <!-- Top Header -->
+    <div class="header-top">
+      <div class="header-top-container">
+        <div class="action-icon">📞 Support: +91 8882845702</div>
+        <div class="action-icon">📧 info@sharmapetnation.com</div>
+      </div>
+    </div>
+
+    <!-- Main Header -->
     <div class="header-container">
-      <div class="logo">Sharma's Pet Nation</div>
+      <div class="logo">
+        Sharma's <span>Pet Nation</span>
+      </div>
+
+      <div class="search-bar">
+        <input type="search" placeholder="Search for breeds, pets, or products...">
+      </div>
+
       <nav>
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="dogs.html">Dogs</a></li>
           <li><a href="cats.html">Cats</a></li>
-          <li><a href="available-pets.html">Available Pets</a></li>
+          <li><a href="available-pets.html" class="active">Available Pets</a></li>
           <li><a href="adoption.html">Adoption</a></li>
           <li><a href="shop.html">Shop</a></li>
         </ul>
       </nav>
+
       <div class="header-actions">
         <a href="support.html" class="action-icon">📞 Support</a>
-        <a href="admin.html" class="action-icon">👤 Admin Login</a>
-        <a href="#" class="action-icon" id="cart-icon">🛒 Cart (<span id="cart-count">0</span>)</a>
-        <input type="search" placeholder="Search for breeds..." />
+        <a href="admin.html" class="action-icon">👤 Admin</a>
       </div>
     </div>
   </header>
 
   <main>
+    <!-- Page Header -->
+    <section class="hero" style="padding: 60px 20px;">
+      <div class="hero-content">
+        <h1 style="font-size: 2.5rem;">Available Pets for Adoption</h1>
+        <p>Find your perfect companion from our curated selection of healthy, vaccinated pets</p>
+      </div>
+    </section>
+
+    <!-- Available Pets Section -->
     <section class="content-section">
-      <h2>Available Pets for Adoption or Sale</h2>
       <div class="pet-grid">
         <!-- Pet 1 -->
         <article class="pet-card">
-          <img src="https://i.imgur.com/C5B09na.png" alt="Birchy the Persian Cat">
+          <span class="pet-badge badge-gold">Gold</span>
+          <img src="PersianCat.jpeg" alt="Birchy the Persian Cat">
           <div class="pet-info">
             <h3>Birchy</h3>
             <div class="pet-details">
-              <span>Breed: Persian Cat</span>
-              <span>Gender: Female</span>
-              <span>Age: 12 weeks</span>
+              <span class="pet-detail-item">Persian Cat</span>
+              <span class="pet-detail-item">Female</span>
+              <span class="pet-detail-item">12 weeks</span>
             </div>
+            <p>Beautiful Persian cat with soft fur and gentle nature. Perfect for families.</p>
             <div class="pet-actions">
-              <a href="#" class="btn btn-secondary">View Price</a>
-              <a href="adoption.html" class="btn">Adopt</a>
-              <button class="btn btn-primary add-to-cart" data-product="birchy-cat" data-name="Birchy (Persian Cat)" data-price="25000">Add to Cart</button>
+              <a href="tel:+918882845702" class="btn btn-call btn-small">📞 Call</a>
+              <a href="https://wa.me/918882845702" target="_blank" class="btn btn-whatsapp btn-small">💬 WhatsApp</a>
+              <a href="adoption.html" class="btn btn-primary btn-small">Adopt Now</a>
             </div>
           </div>
         </article>
 
         <!-- Pet 2 -->
         <article class="pet-card">
+          <span class="pet-badge badge-platinum">Platinum</span>
           <img src="Toy Pom.jpg" alt="Charlie the Toy Pom">
           <div class="pet-info">
             <h3>Charlie</h3>
             <div class="pet-details">
-              <span>Breed: Toy Pom</span>
-              <span>Gender: Male</span>
-              <span>Age: 12 weeks</span>
+              <span class="pet-detail-item">Toy Pom</span>
+              <span class="pet-detail-item">Male</span>
+              <span class="pet-detail-item">12 weeks</span>
             </div>
+            <p>Adorable Toy Pomeranian, playful and energetic. Great companion for apartment living.</p>
             <div class="pet-actions">
-              <a href="#" class="btn btn-secondary">View Price</a>
-              <a href="adoption.html" class="btn">Adopt</a>
-              <button class="btn btn-primary add-to-cart" data-product="charlie-dog" data-name="Charlie (Toy Pom)" data-price="35000">Add to Cart</button>
+              <a href="tel:+918882845702" class="btn btn-call btn-small">📞 Call</a>
+              <a href="https://wa.me/918882845702" target="_blank" class="btn btn-whatsapp btn-small">💬 WhatsApp</a>
+              <a href="adoption.html" class="btn btn-primary btn-small">Adopt Now</a>
             </div>
           </div>
         </article>
 
         <!-- Pet 3 -->
         <article class="pet-card">
+          <span class="pet-badge badge-gold">Gold</span>
           <img src="Poodle.jpg" alt="Harry the Poodle">
           <div class="pet-info">
             <h3>Harry</h3>
             <div class="pet-details">
-              <span>Breed: Poodle</span>
-              <span>Gender: Male</span>
-              <span>Age: 8 weeks</span>
+              <span class="pet-detail-item">Poodle</span>
+              <span class="pet-detail-item">Male</span>
+              <span class="pet-detail-item">8 weeks</span>
             </div>
+            <p>Smart and friendly Poodle puppy. Easy to train and very loyal to family.</p>
             <div class="pet-actions">
-              <a href="#" class="btn btn-secondary">View Price</a>
-              <a href="adoption.html" class="btn">Adopt</a>
-              <button class="btn btn-primary add-to-cart" data-product="harry-dog" data-name="Harry (Poodle)" data-price="40000">Add to Cart</button>
+              <a href="tel:+918882845702" class="btn btn-call btn-small">📞 Call</a>
+              <a href="https://wa.me/918882845702" target="_blank" class="btn btn-whatsapp btn-small">💬 WhatsApp</a>
+              <a href="adoption.html" class="btn btn-primary btn-small">Adopt Now</a>
             </div>
           </div>
         </article>
 
         <!-- Pet 4 -->
         <article class="pet-card">
-          <img src="https://i.imgur.com/3uRCMbI.jpeg" alt="Goldie the Golden Retriever">
+          <span class="pet-badge badge-platinum">Platinum</span>
+          <img src="GoldenRetriever.jpeg" alt="Goldie the Golden Retriever">
           <div class="pet-info">
             <h3>Goldie</h3>
             <div class="pet-details">
-              <span>Breed: Golden Retriever</span>
-              <span>Gender: Female</span>
-              <span>Age: 10 weeks</span>
+              <span class="pet-detail-item">Golden Retriever</span>
+              <span class="pet-detail-item">Female</span>
+              <span class="pet-detail-item">10 weeks</span>
             </div>
+            <p>Loving Golden Retriever with golden coat. Perfect family dog with gentle temperament.</p>
             <div class="pet-actions">
-              <a href="#" class="btn btn-secondary">View Price</a>
-              <a href="adoption.html" class="btn">Adopt</a>
-              <button class="btn btn-primary add-to-cart" data-product="goldie-dog" data-name="Goldie (Golden Retriever)" data-price="45000">Add to Cart</button>
+              <a href="tel:+918882845702" class="btn btn-call btn-small">📞 Call</a>
+              <a href="https://wa.me/918882845702" target="_blank" class="btn btn-whatsapp btn-small">💬 WhatsApp</a>
+              <a href="adoption.html" class="btn btn-primary btn-small">Adopt Now</a>
             </div>
           </div>
         </article>
 
+        <!-- Pet 5 -->
+        <article class="pet-card">
+          <span class="pet-badge badge-silver">Silver</span>
+          <img src="GermanShepherd.jpeg" alt="Max the German Shepherd">
+          <div class="pet-info">
+            <h3>Max</h3>
+            <div class="pet-details">
+              <span class="pet-detail-item">German Shepherd</span>
+              <span class="pet-detail-item">Male</span>
+              <span class="pet-detail-item">14 weeks</span>
+            </div>
+            <p>Loyal and protective German Shepherd. Excellent guard dog and family companion.</p>
+            <div class="pet-actions">
+              <a href="tel:+918882845702" class="btn btn-call btn-small">📞 Call</a>
+              <a href="https://wa.me/918882845702" target="_blank" class="btn btn-whatsapp btn-small">💬 WhatsApp</a>
+              <a href="adoption.html" class="btn btn-primary btn-small">Adopt Now</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Pet 6 -->
+        <article class="pet-card">
+          <span class="pet-badge badge-gold">Gold</span>
+          <img src="Goldendoodle.jpeg" alt="Buddy the Goldendoodle">
+          <div class="pet-info">
+            <h3>Buddy</h3>
+            <div class="pet-details">
+              <span class="pet-detail-item">Goldendoodle</span>
+              <span class="pet-detail-item">Male</span>
+              <span class="pet-detail-item">9 weeks</span>
+            </div>
+            <p>Playful Goldendoodle with hypoallergenic coat. Perfect for families with allergies.</p>
+            <div class="pet-actions">
+              <a href="tel:+918882845702" class="btn btn-call btn-small">📞 Call</a>
+              <a href="https://wa.me/918882845702" target="_blank" class="btn btn-whatsapp btn-small">💬 WhatsApp</a>
+              <a href="adoption.html" class="btn btn-primary btn-small">Adopt Now</a>
+            </div>
+          </div>
+        </article>
       </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="content-section bg-light" style="text-align: center;">
+      <h2>Can't Find What You're Looking For?</h2>
+      <p style="max-width: 600px; margin: 0 auto 30px;">We're constantly adding new pets to our family. Contact us to
+        learn about upcoming arrivals or to discuss your specific requirements.</p>
+      <a href="support.html" class="btn btn-primary">Contact Us</a>
+      <a href="adoption.html" class="btn btn-secondary">Start Adoption Process</a>
     </section>
   </main>
 
+  <!-- Footer -->
   <footer>
     <div class="footer-container">
-      <div class="social-links">
-        <a href="#">Facebook</a>
-        <a href="#">Instagram</a>
-        <a href="#">WhatsApp</a>
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h3>Sharma's Pet Nation</h3>
+          <p>India's most trusted pet adoption and care platform. Bringing joy to families, one paw at a time.</p>
+          <div class="social-links">
+            <a href="https://www.facebook.com/profile.php?id=61579199668724" target="_blank" rel="noopener">Facebook</a>
+            <a href="https://www.instagram.com/sharmapetnation" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://wa.me/8882845702" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <p><a href="index.html">Home</a></p>
+          <p><a href="available-pets.html">Available Pets</a></p>
+          <p><a href="adoption.html">Adoption</a></p>
+          <p><a href="shop.html">Shop</a></p>
+          <p><a href="support.html">Support</a></p>
+        </div>
+
+        <div class="footer-section">
+          <h3>Pet Categories</h3>
+          <p><a href="dogs.html">Dogs</a></p>
+          <p><a href="cats.html">Cats</a></p>
+          <p><a href="available-pets.html">All Pets</a></p>
+        </div>
+
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <p>📞 +91 8882845702</p>
+          <p>📧 info@sharmapetnation.com</p>
+          <p>📍 Delhi NCR, India</p>
+        </div>
       </div>
-      <p>Copyright © 2025 Sharma's Pet Nation. All rights reserved.</p>
+
+      <div class="footer-bottom">
+        <p>Copyright © 2025 Sharma's Pet Nation. All rights reserved.</p>
+      </div>
     </div>
   </footer>
 
   <script src="js/app.js"></script>
 </body>
+
 </html>
