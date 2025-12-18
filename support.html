@@ -1,84 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Support - Sharma's Pet Nation</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
+    <!-- Floating Contact Sidebar -->
+    <div class="floating-contact">
+        <a href="tel:+918882845702" class="floating-btn call">📞 Call</a>
+        <a href="https://wa.me/918882845702" target="_blank" class="floating-btn whatsapp">💬 WhatsApp</a>
+        <a href="support.html" class="floating-btn">📧 Inquiry</a>
+    </div>
+
+    <!-- Header -->
     <header class="sticky-header">
+        <div class="header-top">
+            <div class="header-top-container">
+                <div class="action-icon">📞 Support: +91 8882845702</div>
+                <div class="action-icon">📧 info@sharmapetnation.com</div>
+            </div>
+        </div>
         <div class="header-container">
-            <div class="logo">Sharma's Pet Nation</div>
+            <div class="logo">Sharma's <span>Pet Nation</span></div>
+            <div class="search-bar">
+                <input type="search" placeholder="Search for breeds, pets, or products...">
+            </div>
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="#">Dogs</a></li>
-                    <li><a href="#">Cats</a></li>
-                    <li><a href="#">Available Pets</a></li>
-                    <li><a href="#">Adoption</a></li>
-                    <li><a href="#">Shop</a></li>
+                    <li><a href="dogs.html">Dogs</a></li>
+                    <li><a href="cats.html">Cats</a></li>
+                    <li><a href="available-pets.html">Available Pets</a></li>
+                    <li><a href="adoption.html">Adoption</a></li>
+                    <li><a href="shop.html">Shop</a></li>
                 </ul>
             </nav>
             <div class="header-actions">
-                <a href="support.html" class="action-icon">📞 Support</a>
-                <a href="login.html" class="action-icon">👤 Login</a>
-                <input type="search" placeholder="Search for breeds...">
+                <a href="support.html" class="action-icon active">📞 Support</a>
+                <a href="admin.html" class="action-icon">👤 Admin</a>
             </div>
         </div>
     </header>
 
     <main>
+        <!-- Hero Section -->
+        <section class="hero" style="padding: 60px 20px;">
+            <div class="hero-content">
+                <h1 style="font-size: 2.5rem;">We're Here to Help</h1>
+                <p>Get in touch with our support team for any questions or assistance</p>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
         <section class="content-section">
             <h2>Contact Our Support Team</h2>
             <div class="support-container">
                 <form id="supportForm" class="support-form">
                     <input type="text" name="name" placeholder="Your Name" required>
                     <input type="email" name="email" placeholder="Your Email" required>
+                    <input type="tel" name="phone" placeholder="Your Phone Number">
                     <textarea name="message" rows="6" placeholder="How can we help you?" required></textarea>
                     <button type="submit" class="btn btn-primary">Submit Request</button>
                 </form>
 
                 <div class="support-info">
-                    <h3>Need help?</h3>
-                    <p>Email us: <a href="mailto:support@petnation.com">support@petnation.com</a></p>
-                    <p>Call us: <a href="tel:+919876543210">+91 98765 43210</a></p>
-                    <p>Address: 123 Pet Street, Delhi, India</p>
+                    <h3>Get In Touch</h3>
+                    <p><strong>📧 Email:</strong><br><a
+                            href="mailto:info@sharmapetnation.com">info@sharmapetnation.com</a></p>
+                    <p><strong>📞 Phone:</strong><br><a href="tel:+918882845702">+91 8882845702</a></p>
+                    <p><strong>💬 WhatsApp:</strong><br><a href="https://wa.me/918882845702" target="_blank">Chat with
+                            us</a></p>
+                    <p><strong>📍 Location:</strong><br>Delhi NCR, India</p>
+
+                    <h3 style="margin-top: 30px;">Business Hours</h3>
+                    <p>Monday - Saturday: 9:00 AM - 8:00 PM<br>Sunday: 10:00 AM - 6:00 PM</p>
                 </div>
             </div>
         </section>
 
+        <!-- FAQ Section -->
         <section class="content-section bg-light">
             <h2>Frequently Asked Questions</h2>
             <div class="faq">
                 <div class="faq-item">
                     <h4>How does the adoption process work?</h4>
-                    <p>You can view available pets, book online, and we deliver your pet safely to your home.</p>
+                    <p>Browse our available pets, submit an adoption request form with your details, and our team will
+                        contact you to complete the process. We deliver your pet safely to your home after approval.</p>
                 </div>
                 <div class="faq-item">
-                    <h4>Can I return a pet after adoption?</h4>
-                    <p>We strongly encourage careful selection, but contact us within 7 days for any concerns.</p>
+                    <h4>Are all pets vaccinated?</h4>
+                    <p>Yes! All our pets are fully vaccinated, dewormed, and health-certified before adoption. We
+                        provide complete health records with every pet.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>What is your return policy?</h4>
+                    <p>We encourage careful selection, but if you have any concerns within 7 days of adoption, please
+                        contact us immediately and we'll work with you to find a solution.</p>
                 </div>
                 <div class="faq-item">
                     <h4>Do you offer veterinary support?</h4>
-                    <p>Yes! We connect you with trusted vets in your area post-adoption.</p>
+                    <p>Yes! We connect you with trusted veterinarians in your area and provide post-adoption support for
+                        any health-related questions.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>What areas do you deliver to?</h4>
+                    <p>We primarily serve Delhi NCR, but we can arrange delivery to other major cities in India. Contact
+                        us for specific delivery arrangements.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Can I visit the pets before adoption?</h4>
+                    <p>Yes! We encourage potential adopters to meet the pets. Contact us to schedule a visit or video
+                        call to see your chosen pet.</p>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer>
         <div class="footer-container">
-            <div class="social-links">
-                <a href="#">Facebook</a>
-                <a href="#">Instagram</a>
-                <a href="#">WhatsApp</a>
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Sharma's Pet Nation</h3>
+                    <p>India's most trusted pet adoption and care platform.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61579199668724" target="_blank">Facebook</a>
+                        <a href="https://www.instagram.com/sharmapetnation" target="_blank">Instagram</a>
+                        <a href="https://wa.me/8882845702" target="_blank">WhatsApp</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="index.html">Home</a></p>
+                    <p><a href="available-pets.html">Available Pets</a></p>
+                    <p><a href="adoption.html">Adoption</a></p>
+                    <p><a href="shop.html">Shop</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Pet Categories</h3>
+                    <p><a href="dogs.html">Dogs</a></p>
+                    <p><a href="cats.html">Cats</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p>📞 +91 8882845702</p>
+                    <p>📧 info@sharmapetnation.com</p>
+                    <p>📍 Delhi NCR, India</p>
+                </div>
             </div>
-            <p>Copyright © 2025 Sharma's Pet Nation. All rights reserved.</p>
+            <div class="footer-bottom">
+                <p>Copyright © 2025 Sharma's Pet Nation. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
     <script src="js/app.js"></script>
 </body>
+
 </html>
