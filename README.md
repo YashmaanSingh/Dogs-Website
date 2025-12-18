@@ -1,16 +1,33 @@
-# Sharma's Pet Nation - Complete Pet Adoption Platform
+# Sharma's Pet Nation - Modern Pet Adoption Platform
 
-A full-stack web application for pet adoption and e-commerce built with Node.js, Express, SQLite, and Stripe payment integration.
+A beautiful, modern pet adoption and e-commerce platform inspired by Puppiezo.com, built with Node.js, Express, SQLite, and featuring a premium orange/teal design system.
 
-## Features
+![Sharma's Pet Nation](https://img.shields.io/badge/Status-Active-success)
+![Version](https://img.shields.io/badge/Version-2.0.0-blue)
+![License](https://img.shields.io/badge/License-MIT-green)
+
+## 🎨 Design Highlights
+
+**Puppiezo-Inspired Modern Design:**
+- 🧡 **Vibrant Color Scheme**: Orange (#F07010) primary with Teal (#008BA3) secondary
+- 📱 **Floating Contact Sidebar**: Always-accessible Call, WhatsApp, and Inquiry buttons
+- 🏷️ **Premium Pet Badges**: Gold, Platinum, and Silver tier system
+- 🎯 **Multiple CTAs**: Call, WhatsApp, and View Details buttons on every pet card
+- 🎨 **Pastel Breed Cards**: Beautiful pastel backgrounds with elevated images
+- ✨ **Modern Typography**: Poppins font family for professional appearance
+- 📐 **Responsive Design**: Seamless experience across all devices
+
+## ✨ Features
 
 ### Frontend
-- **Responsive Design**: Modern, mobile-friendly UI
-- **Pet Gallery**: Browse available pets with detailed information
-- **Shop**: E-commerce section for pet supplies and accessories
-- **Adoption System**: Complete adoption request workflow
-- **User Authentication**: Login/register system
-- **Support System**: Contact form and ticket system
+- **Modern UI/UX**: Puppiezo-inspired design with orange/teal color scheme
+- **Auto-Playing Hero Slider**: 4 slides with smooth transitions and pagination
+- **Two-Tier Header**: Top bar with contact info + main navigation with search
+- **Floating Contact Sidebar**: Quick access to Call, WhatsApp, and Inquiry
+- **Enhanced Pet Cards**: Premium badges (Gold/Platinum/Silver) with multiple CTAs
+- **Pastel Breed Cards**: Eye-catching cards with unique pastel backgrounds
+- **Responsive Design**: Mobile-first approach with smooth transitions
+- **Interactive Elements**: Hover effects, smooth scrolling, and animations
 
 ### Backend
 - **RESTful API**: Complete API endpoints for all features
@@ -20,16 +37,24 @@ A full-stack web application for pet adoption and e-commerce built with Node.js,
 - **Admin Panel**: User and content management
 - **Security**: Rate limiting, input validation, and error handling
 
-## Tech Stack
+## 🚀 Tech Stack
 
-- **Frontend**: HTML5, CSS3, Vanilla JavaScript
-- **Backend**: Node.js, Express.js
-- **Database**: SQLite3
-- **Authentication**: JWT (JSON Web Tokens)
-- **Payment**: Stripe API
-- **Security**: Helmet, CORS, Rate Limiting
+### Frontend
+- **HTML5** - Semantic markup
+- **CSS3** - Modern design system with CSS variables
+- **JavaScript** - Vanilla JS for interactivity
+- **Google Fonts** - Poppins typography
 
-## Installation & Setup
+### Backend
+- **Node.js** - Runtime environment
+- **Express.js** - Web framework
+- **SQLite3** - Database
+- **JWT** - Authentication
+- **Stripe** - Payment processing
+- **Helmet** - Security headers
+- **CORS** - Cross-origin resource sharing
+
+## 📦 Installation & Setup
 
 ### Prerequisites
 - Node.js (v16 or higher)
@@ -94,14 +119,62 @@ npm start
 
 The server will start on `http://localhost:5000`
 
-## API Endpoints
+## 🎯 Key Pages
+
+### Homepage (`index.html`)
+- **Hero Section**: Gradient background with clear value proposition
+- **Featured Breeds**: Pastel cards showcasing popular breeds
+- **Available Pets**: Premium pet cards with badges and multiple CTAs
+- **Why Choose Us**: 6 feature cards highlighting platform benefits
+- **Multi-Column Footer**: Comprehensive navigation and contact info
+
+### Available Pets (`available-pets.html`)
+- **6 Pet Listings**: Each with Gold/Platinum/Silver badges
+- **Multiple CTAs**: Call, WhatsApp, and Adopt Now buttons
+- **Detailed Information**: Breed, gender, age, and description
+- **Call-to-Action Section**: Encourages contact for more options
+
+### Adoption (`adoption.html`)
+- **Process Steps**: Visual 3-step adoption guide
+- **Modern Form**: Clean, user-friendly adoption application
+- **Professional Styling**: Consistent with brand design
+
+### Support (`support.html`)
+- **Contact Form**: Easy-to-use support request form
+- **Contact Information**: Phone, email, WhatsApp, and location
+- **FAQ Section**: 6 comprehensive frequently asked questions
+
+## 🎨 Design System
+
+### Color Palette
+```css
+--primary-orange: #F07010;      /* Primary actions, CTAs */
+--secondary-teal: #008BA3;      /* Branding, footer */
+--pastel-yellow: #FFF9E6;       /* Breed card backgrounds */
+--pastel-pink: #FFE6F0;         /* Breed card backgrounds */
+--pastel-blue: #E6F4FF;         /* Breed card backgrounds */
+--pastel-mint: #E6FFF0;         /* Breed card backgrounds */
+--pastel-lavender: #F0E6FF;     /* Breed card backgrounds */
+```
+
+### Typography
+- **Primary Font**: Poppins (400, 600, 700, 800)
+- **Headings**: Bold, large, high contrast
+- **Body**: Clean, highly readable
+
+### Components
+- **Buttons**: Rounded, with hover effects
+- **Cards**: Elevated with shadows, rounded corners
+- **Forms**: Modern inputs with focus states
+- **Badges**: Gold, Platinum, Silver tier indicators
+
+## 📡 API Endpoints
 
 ### Authentication
 - `POST /api/auth/register` - User registration
 - `POST /api/auth/login` - User login
 - `GET /api/auth/me` - Get current user
 - `PUT /api/auth/profile` - Update user profile
-- `PUT /api/auth/change-password` - Change password
 
 ### Pets
 - `GET /api/pets` - Get all pets (with filtering)
@@ -109,43 +182,27 @@ The server will start on `http://localhost:5000`
 - `POST /api/pets` - Create pet (Admin only)
 - `PUT /api/pets/:id` - Update pet (Admin only)
 - `DELETE /api/pets/:id` - Delete pet (Admin only)
-- `GET /api/pets/featured` - Get featured pets
 
 ### Adoption
 - `POST /api/adoption/request` - Submit adoption request
 - `GET /api/adoption/requests` - Get adoption requests (Admin)
-- `PUT /api/adoption/requests/:id/status` - Update request status (Admin)
-- `GET /api/adoption/my-requests` - Get user's adoption requests
+- `PUT /api/adoption/requests/:id/status` - Update request status
 
 ### Shop
 - `GET /api/shop/products` - Get shop products
 - `GET /api/shop/products/:id` - Get single product
 - `POST /api/shop/products` - Create product (Admin only)
-- `PUT /api/shop/products/:id` - Update product (Admin only)
-- `DELETE /api/shop/products/:id` - Delete product (Admin only)
-- `GET /api/shop/categories` - Get product categories
-- `GET /api/shop/featured` - Get featured products
 
 ### Payment
 - `POST /api/payment/create-intent` - Create payment intent
 - `POST /api/payment/confirm` - Confirm payment
 - `POST /api/payment/webhook` - Stripe webhook
-- `GET /api/payment/history` - Get payment history
-
-### Users
-- `GET /api/users` - Get all users (Admin only)
-- `GET /api/users/:id` - Get single user
-- `PUT /api/users/:id` - Update user
-- `DELETE /api/users/:id` - Delete user (Admin only)
-- `GET /api/users/stats` - Get user statistics (Admin only)
 
 ### Support
 - `POST /api/support/tickets` - Submit support ticket
-- `GET /api/support/tickets` - Get support tickets (Admin only)
-- `PUT /api/support/tickets/:id` - Update ticket (Admin only)
-- `GET /api/support/my-tickets` - Get user's tickets
+- `GET /api/support/tickets` - Get support tickets (Admin)
 
-## Database Schema
+## 🗄️ Database Schema
 
 ### Tables
 - **users** - User accounts and profiles
@@ -157,14 +214,16 @@ The server will start on `http://localhost:5000`
 - **payments** - Payment transactions
 - **support_tickets** - Customer support
 
-## Default Admin Account
+## 👤 Default Admin Account
 
-After database initialization, you can login with:
+After database initialization:
 - **Username**: admin
 - **Email**: admin@sharmapetnation.com
 - **Password**: admin123
 
-## Stripe Setup
+⚠️ **Important**: Change the default password in production!
+
+## 💳 Stripe Setup
 
 ### 1. Create Stripe Account
 1. Sign up at [stripe.com](https://stripe.com)
@@ -182,7 +241,7 @@ Use Stripe test cards:
 - **Decline**: 4000 0000 0000 0002
 - **Requires Authentication**: 4000 0025 0000 3155
 
-## File Structure
+## 📁 File Structure
 
 ```
 Dogs-Website-master/
@@ -206,16 +265,16 @@ Dogs-Website-master/
 │   └── support.js           # Support system routes
 ├── js/
 │   └── app.js               # Frontend JavaScript
-├── index.html               # Home page
-├── Login.html               # Login page
+├── index.html               # Home page (Puppiezo-style)
+├── available-pets.html      # Available pets page
 ├── adoption.html            # Adoption page
 ├── support.html             # Support page
 ├── shop.html                # Shop page
-├── available-pets.html      # Available pets page
-└── style.css                # Main stylesheet
+├── admin.html               # Admin panel
+└── style.css                # Main stylesheet (Puppiezo design system)
 ```
 
-## Development
+## 🛠️ Development
 
 ### Running in Development Mode
 ```bash
@@ -231,13 +290,13 @@ npm run init-db
 # Database file location: ./database/pets.db
 ```
 
-### Adding New Features
-1. Create routes in `routes/` directory
-2. Add middleware in `middleware/` directory
-3. Update frontend in `js/app.js`
-4. Test with API endpoints
+### Customizing the Design
+The design system is built with CSS variables in `style.css`:
+- Modify colors in `:root` section
+- Adjust spacing, shadows, and border radius
+- Customize component styles
 
-## Security Features
+## 🔒 Security Features
 
 - **JWT Authentication**: Secure token-based auth
 - **Rate Limiting**: Prevent abuse and DDoS
@@ -247,36 +306,120 @@ npm run init-db
 - **Helmet**: Security headers
 - **Password Hashing**: bcrypt for password security
 
-## Error Handling
+## 📱 Contact Features
 
-- Comprehensive error middleware
-- Validation error responses
-- Database error handling
-- Payment error handling
-- User-friendly error messages
+### Floating Contact Sidebar
+Always-visible sidebar with:
+- 📞 **Call Button**: Direct phone call to +91 8882845702
+- 💬 **WhatsApp Button**: Instant messaging via WhatsApp
+- 📧 **Inquiry Button**: Navigate to support page
 
-## Contributing
+### Header Contact Info
+- Support phone number
+- Email address
+- Quick access to support page
+
+## 🎯 Pet Badge System
+
+### Tier Levels
+- 🥇 **Gold**: Premium pets with excellent lineage
+- 🥈 **Platinum**: Top-tier, rare breed pets
+- 🥉 **Silver**: Standard, healthy pets
+
+Each pet card displays:
+- Badge in top-right corner
+- Breed, gender, and age information
+- Description
+- Three action buttons (Call, WhatsApp, Adopt/View Details)
+
+## 🤝 Contributing
 
 1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## License
+## 📄 License
 
 This project is licensed under the MIT License.
 
-## Support
+## 📞 Support
 
-For support, email support@sharmapetnation.com or create a support ticket through the website.
+For support:
+- **Email**: info@sharmapetnation.com
+- **Phone**: +91 8882845702
+- **WhatsApp**: [Chat with us](https://wa.me/918882845702)
+- **Website**: Submit a support ticket through the support page
 
-## Changelog
+## 🚀 Deployment
 
-### v1.0.0
+### Quick Deployment Guide
+
+For detailed deployment instructions, see [DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md)
+
+**Recommended Hosting Platforms:**
+- **Railway** - Modern, easy deployment from GitHub
+- **Render** - Free tier with no sleep time
+- **Heroku** - Classic PaaS with simple Git deployment
+- **VPS** - Full control (DigitalOcean, Linode, AWS EC2)
+
+**Pre-Deployment Checklist:**
+- [ ] Set environment variables (JWT_SECRET, STRIPE keys, EMAIL credentials)
+- [ ] Update CORS origins in `server.js` for production domain
+- [ ] Change default admin password
+- [ ] Configure production database
+- [ ] Set up SSL certificate
+- [ ] Test all functionality
+
+**Estimated Monthly Cost:** ₹500-1500 ($6-20)
+
+### Environment Variables for Production
+
+```env
+NODE_ENV=production
+PORT=5000
+JWT_SECRET=your-super-secret-jwt-key-minimum-32-characters
+STRIPE_SECRET_KEY=sk_live_your_stripe_secret_key
+STRIPE_PUBLISHABLE_KEY=pk_live_your_stripe_publishable_key
+EMAIL_USER=your-email@gmail.com
+EMAIL_PASS=your-gmail-app-password
+FRONTEND_URL=https://yourdomain.com
+```
+
+## 📝 Changelog
+
+### v2.0.0 (December 2025) - Puppiezo-Style Redesign
+- 🎨 Complete UI/UX redesign inspired by Puppiezo.com
+- 🎬 **Auto-playing hero image slider** with 4 slides (NEW)
+- 🧡 New orange (#F07010) and teal (#008BA3) color scheme
+- 📱 Added floating contact sidebar (Call, WhatsApp, Inquiry)
+- 🏷️ Implemented pet badge system (Gold, Platinum, Silver)
+- 🎯 Added multiple CTAs per pet card
+- 🎨 Created pastel breed cards with elevated images
+- ✨ Integrated Poppins typography
+- 📐 Enhanced responsive design
+- 🔍 Added search bar to header
+- 📊 Improved footer with multi-column layout
+- 🔒 Updated CSP configuration for Swiper.js
+
+### v1.0.0 (Initial Release)
 - Initial release
 - Complete pet adoption platform
 - Stripe payment integration
 - User authentication system
 - Admin panel functionality
-- Responsive frontend design
+- Basic responsive design
+
+## 🙏 Acknowledgments
+
+- Design inspiration from [Puppiezo.com](https://puppiezo.com)
+- Google Fonts for Poppins typography
+- Stripe for payment processing
+- The open-source community
+
+---
+
+**Made with ❤️ for pet lovers in India**
+
+*Bringing joy to families, one paw at a time.*
