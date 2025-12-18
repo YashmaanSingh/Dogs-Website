@@ -1,44 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Adoption - Sharma's Pet Nation</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
+  <!-- Floating Contact Sidebar -->
+  <div class="floating-contact">
+    <a href="tel:+918882845702" class="floating-btn call">📞 Call</a>
+    <a href="https://wa.me/918882845702" target="_blank" class="floating-btn whatsapp">💬 WhatsApp</a>
+    <a href="support.html" class="floating-btn">📧 Inquiry</a>
+  </div>
+
+  <!-- Header -->
   <header class="sticky-header">
+    <div class="header-top">
+      <div class="header-top-container">
+        <div class="action-icon">📞 Support: +91 8882845702</div>
+        <div class="action-icon">📧 info@sharmapetnation.com</div>
+      </div>
+    </div>
     <div class="header-container">
-      <div class="logo">Sharma's Pet Nation</div>
+      <div class="logo">Sharma's <span>Pet Nation</span></div>
+      <div class="search-bar">
+        <input type="search" placeholder="Search for breeds, pets, or products...">
+      </div>
       <nav>
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="dogs.html">Dogs</a></li>
-          <li><a href="#">Cats</a></li>
+          <li><a href="cats.html">Cats</a></li>
           <li><a href="available-pets.html">Available Pets</a></li>
-
-          <li><a href="adoption.html">Adoption</a></li>
+          <li><a href="adoption.html" class="active">Adoption</a></li>
           <li><a href="shop.html">Shop</a></li>
         </ul>
       </nav>
       <div class="header-actions">
         <a href="support.html" class="action-icon">📞 Support</a>
-        <a href="login.html" class="action-icon">👤 Login</a>
-        <input type="search" placeholder="Search for breeds..." />
+        <a href="admin.html" class="action-icon">👤 Admin</a>
       </div>
     </div>
   </header>
 
   <main>
-    <!-- Section: How Adoption Works -->
+    <!-- Hero Section -->
+    <section class="hero" style="padding: 60px 20px;">
+      <div class="hero-content">
+        <h1 style="font-size: 2.5rem;">Start Your Adoption Journey</h1>
+        <p>Bring home a loving companion through our simple and transparent adoption process</p>
+      </div>
+    </section>
+
+    <!-- How Adoption Works -->
     <section class="content-section">
       <h2>How the Adoption Process Works</h2>
       <div class="steps-container">
         <div class="step">
           <div class="step-icon">1</div>
           <h3>Browse Pets</h3>
-          <p>Explore available dogs and cats to find your perfect companion.</p>
+          <p>Explore our available dogs and cats to find your perfect companion.</p>
         </div>
         <div class="step">
           <div class="step-icon">2</div>
@@ -53,76 +81,66 @@
       </div>
     </section>
 
-    <!-- Section: Adoptable Pets -->
+    <!-- Adoption Form -->
     <section class="content-section bg-light">
-      <h2>Adoptable Pets</h2>
-      <div class="pet-grid">
-        <article class="pet-card">
-          <img src="https://i.imgur.com/C5B09na.png" alt="Birchy the Persian Cat">
-          <div class="pet-info">
-            <h3>Birchy</h3>
-            <div class="pet-details">
-              <span>Breed: Persian Cat</span>
-              <span>Gender: Female</span>
-              <span>Age: 12 weeks</span>
-            </div>
-          </div>
-        </article>
-        <article class="pet-card">
-          <img src="Toy Pom.jpg" alt="Charlie the Toy Pom">
-          <div class="pet-info">
-            <h3>Charlie</h3>
-            <div class="pet-details">
-              <span>Breed: Toy Pom</span>
-              <span>Gender: Male</span>
-              <span>Age: 12 weeks</span>
-            </div>
-          </div>
-        </article>
-        <article class="pet-card">
-          <img src="Poodle.jpg" alt="Harry the Poodle">
-          <div class="pet-info">
-            <h3>Harry</h3>
-            <div class="pet-details">
-              <span>Breed: Poodle</span>
-              <span>Gender: Male</span>
-              <span>Age: 8 weeks</span>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- Section: Adoption Form -->
-    <section class="content-section">
       <h2>Adoption Request Form</h2>
       <form id="adoptionForm" class="support-form" style="max-width: 700px; margin: 0 auto;">
         <input type="text" name="name" placeholder="Your Full Name" required>
         <input type="email" name="email" placeholder="Email Address" required>
-        <input type="text" name="phone" placeholder="Phone Number" required>
-        <select name="preferred_pet">
+        <input type="tel" name="phone" placeholder="Phone Number" required>
+        <select name="preferred_pet" required>
           <option value="">Select Preferred Pet</option>
           <option value="Birchy">Birchy (Persian Cat)</option>
           <option value="Charlie">Charlie (Toy Pom)</option>
           <option value="Harry">Harry (Poodle)</option>
+          <option value="Goldie">Goldie (Golden Retriever)</option>
         </select>
-        <textarea name="message" rows="6" placeholder="Tell us why you want to adopt this pet..." required></textarea>
+        <textarea name="message" rows="6"
+          placeholder="Tell us why you want to adopt this pet and about your living situation..." required></textarea>
         <button type="submit" class="btn btn-primary">Submit Application</button>
       </form>
     </section>
   </main>
 
+  <!-- Footer -->
   <footer>
     <div class="footer-container">
-      <div class="social-links">
-        <a href="#">Facebook</a>
-        <a href="#">Instagram</a>
-        <a href="#">WhatsApp</a>
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h3>Sharma's Pet Nation</h3>
+          <p>India's most trusted pet adoption and care platform.</p>
+          <div class="social-links">
+            <a href="https://www.facebook.com/profile.php?id=61579199668724" target="_blank">Facebook</a>
+            <a href="https://www.instagram.com/sharmapetnation" target="_blank">Instagram</a>
+            <a href="https://wa.me/8882845702" target="_blank">WhatsApp</a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <p><a href="index.html">Home</a></p>
+          <p><a href="available-pets.html">Available Pets</a></p>
+          <p><a href="adoption.html">Adoption</a></p>
+          <p><a href="shop.html">Shop</a></p>
+        </div>
+        <div class="footer-section">
+          <h3>Pet Categories</h3>
+          <p><a href="dogs.html">Dogs</a></p>
+          <p><a href="cats.html">Cats</a></p>
+        </div>
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <p>📞 +91 8882845702</p>
+          <p>📧 info@sharmapetnation.com</p>
+          <p>📍 Delhi NCR, India</p>
+        </div>
       </div>
-      <p>Copyright © 2025 Sharma's Pet Nation. All rights reserved.</p>
+      <div class="footer-bottom">
+        <p>Copyright © 2025 Sharma's Pet Nation. All rights reserved.</p>
+      </div>
     </div>
   </footer>
 
   <script src="js/app.js"></script>
 </body>
+
 </html>
