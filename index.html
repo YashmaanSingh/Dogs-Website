@@ -1,50 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sharma's pet nation - Find Your New Best Friend</title>
+    <title>Sharma's Pet Nation - India's Trusted Pet Ecosystem</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 </head>
+
 <body>
 
+    <!-- Floating Contact Sidebar -->
+    <div class="floating-contact">
+        <a href="tel:+918882845702" class="floating-btn call">
+            📞 Call
+        </a>
+        <a href="https://wa.me/918882845702" target="_blank" class="floating-btn whatsapp">
+            💬 WhatsApp
+        </a>
+        <a href="support.html" class="floating-btn">
+            📧 Inquiry
+        </a>
+    </div>
+
+    <!-- Header -->
     <header class="sticky-header">
+        <!-- Top Header -->
+        <div class="header-top">
+            <div class="header-top-container">
+                <div class="action-icon">📞 Support: +91 8882845702</div>
+                <div class="action-icon">📧 info@sharmapetnation.com</div>
+            </div>
+        </div>
+
+        <!-- Main Header -->
         <div class="header-container">
-            <div class="logo">Sharma's Pet nation</div>
+            <div class="logo">
+                Sharma's <span>Pet Nation</span>
+            </div>
+
+            <div class="search-bar">
+                <input type="search" placeholder="Search for breeds, pets, or products...">
+            </div>
+
             <nav>
                 <ul>
-                    <li><a href="#">Home</a></li>
+                    <li><a href="index.html" class="active">Home</a></li>
                     <li><a href="dogs.html">Dogs</a></li>
-
                     <li><a href="cats.html">Cats</a></li>
-
                     <li><a href="available-pets.html">Available Pets</a></li>
                     <li><a href="adoption.html">Adoption</a></li>
-
-                    <li><a href="#">Shop</a></li>
+                    <li><a href="shop.html">Shop</a></li>
                 </ul>
             </nav>
+
             <div class="header-actions">
                 <a href="support.html" class="action-icon">📞 Support</a>
-
-                <!--<a href="login.html" class="action-icon">👤 Login</a>-->
-
-                <input type="search" placeholder="Search for breeds...">
-                <a href="admin.html" class="action-icon">👤 Admin Login</a>
+                <a href="admin.html" class="action-icon">👤 Admin</a>
             </div>
         </div>
     </header>
 
     <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Find Your New Best Friend</h1>
-                
-                <p>Bringing joy to families, one paw at a time.</p>
-                <a href="available-pets.html" class="btn btn-primary">View Available Pets</a>
+        <!-- Hero Slider Section -->
+        <section class="hero-slider-section">
+            <div class="swiper hero-slider">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1: Main Value Proposition -->
+                    <div class="swiper-slide">
+                        <div class="hero-slide" style="background: linear-gradient(135deg, #008BA3 0%, #F07010 100%);">
+                            <div class="hero-content">
+                                <h1>India's Trusted Pet Ecosystem</h1>
+                                <p>Companions | Products | Services</p>
+                                <p>Bringing joy to families, one paw at a time.</p>
+                                <a href="available-pets.html" class="btn btn-primary">View Available Pets</a>
+                                <a href="shop.html" class="btn btn-outline">Shop Products</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2: Adoption Focus -->
+                    <div class="swiper-slide">
+                        <div class="hero-slide" style="background: linear-gradient(135deg, #F07010 0%, #FF9A56 100%);">
+                            <div class="hero-content">
+                                <h1>Find Your Perfect Companion</h1>
+                                <p>Premium Breeds | Ethical Breeders | Health Certified</p>
+                                <p>Choose from the widest selection of dogs and cats in Delhi NCR.</p>
+                                <a href="available-pets.html" class="btn btn-primary">Browse Pets</a>
+                                <a href="adoption.html" class="btn btn-outline">Start Adoption</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3: Shop Focus -->
+                    <div class="swiper-slide">
+                        <div class="hero-slide" style="background: linear-gradient(135deg, #008BA3 0%, #00A8C5 100%);">
+                            <div class="hero-content">
+                                <h1>Premium Pet Products</h1>
+                                <p>Food | Toys | Accessories | Healthcare</p>
+                                <p>Everything your furry friend needs, delivered to your doorstep.</p>
+                                <a href="shop.html" class="btn btn-primary">Shop Now</a>
+                                <a href="available-pets.html" class="btn btn-outline">View Pets</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 4: Trust & Quality -->
+                    <div class="swiper-slide">
+                        <div class="hero-slide" style="background: linear-gradient(135deg, #FF9A56 0%, #008BA3 100%);">
+                            <div class="hero-content">
+                                <h1>Ethical Breeding, Happy Pets</h1>
+                                <p>Verified Breeders | Health Guarantee | 24/7 Support</p>
+                                <p>Join thousands of happy families who trusted us with their pet journey.</p>
+                                <a href="adoption.html" class="btn btn-primary">Adopt Now</a>
+                                <a href="support.html" class="btn btn-outline">Contact Us</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Pagination Dots -->
+                <div class="swiper-pagination"></div>
             </div>
         </section>
 
+        <!-- Featured In Section -->
         <section class="featured-in">
             <h2>As Featured In</h2>
             <div class="logos">
@@ -55,120 +139,251 @@
             </div>
         </section>
 
+        <!-- Our Customers' Favorite Breeds -->
         <section class="content-section">
-            <h2>Our Customers’ Favorite Breeds</h2>
+            <h2>Our Customers' Favorite Breeds</h2>
             <div class="breed-grid">
                 <div class="breed-card">
                     <img src="Goldendoodle.jpeg" alt="Goldendoodle">
                     <h3>Goldendoodle</h3>
                     <p>Playful, intelligent, and loving. Perfect for families!</p>
-                    <a href="#" class="btn">View More</a>
+                    <a href="available-pets.html" class="btn btn-primary">View More</a>
                 </div>
                 <div class="breed-card">
                     <img src="GermanShepherd.jpeg" alt="German Shepherd">
                     <h3>German Shepherd</h3>
                     <p>A loyal and protective companion with a heart of gold.</p>
-                    <a href="#" class="btn">View More</a>
+                    <a href="available-pets.html" class="btn btn-primary">View More</a>
                 </div>
                 <div class="breed-card">
                     <img src="GoldenRetriever.jpeg" alt="Golden Retriever">
                     <h3>Golden Retriever</h3>
                     <p>The ultimate family sweetheart—friendly, loyal, and fun.</p>
-                    <a href="#" class="btn">View More</a>
+                    <a href="available-pets.html" class="btn btn-primary">View More</a>
                 </div>
             </div>
         </section>
 
+        <!-- Available Pets -->
         <section class="content-section bg-light">
             <h2>Available Pets</h2>
             <div class="pet-grid">
                 <!-- Pet Card 1 -->
                 <article class="pet-card">
+                    <span class="pet-badge badge-gold">Gold</span>
                     <img src="PersianCat.jpeg" alt="Birchy the Persian Cat">
                     <div class="pet-info">
                         <h3>Birchy</h3>
                         <div class="pet-details">
-                            <span>Breed: Persian Cat</span>
-                            <span>Gender: Female</span>
-                            <span>Age: 12 weeks</span>
+                            <span class="pet-detail-item">Persian Cat</span>
+                            <span class="pet-detail-item">Female</span>
+                            <span class="pet-detail-item">12 weeks</span>
                         </div>
+                        <p>Beautiful Persian cat with soft fur and gentle nature. Perfect for families.</p>
                         <div class="pet-actions">
-                            <a href="#" class="btn btn-secondary">View Price</a>
-                            <a href="#" class="btn">View Details</a>
+                            <a href="tel:+918882845702" class="btn btn-call btn-small">📞 Call</a>
+                            <a href="https://wa.me/918882845702" target="_blank" class="btn btn-whatsapp btn-small">💬
+                                WhatsApp</a>
+                            <a href="available-pets.html" class="btn btn-primary btn-small">View Details</a>
                         </div>
                     </div>
                 </article>
+
                 <!-- Pet Card 2 -->
                 <article class="pet-card">
+                    <span class="pet-badge badge-platinum">Platinum</span>
                     <img src="Toy Pom.jpg" alt="Charlie the Toy Pom">
                     <div class="pet-info">
                         <h3>Charlie</h3>
                         <div class="pet-details">
-                            <span>Breed: Toy Pom</span>
-                            <span>Gender: Male</span>
-                            <span>Age: 12 weeks</span>
+                            <span class="pet-detail-item">Toy Pom</span>
+                            <span class="pet-detail-item">Male</span>
+                            <span class="pet-detail-item">12 weeks</span>
                         </div>
-                         <div class="pet-actions">
-                            <a href="#" class="btn btn-secondary">View Price</a>
-                            <a href="#" class="btn">View Details</a>
+                        <p>Adorable Toy Pomeranian, playful and energetic. Great companion.</p>
+                        <div class="pet-actions">
+                            <a href="tel:+918882845702" class="btn btn-call btn-small">📞 Call</a>
+                            <a href="https://wa.me/918882845702" target="_blank" class="btn btn-whatsapp btn-small">💬
+                                WhatsApp</a>
+                            <a href="available-pets.html" class="btn btn-primary btn-small">View Details</a>
                         </div>
                     </div>
                 </article>
+
                 <!-- Pet Card 3 -->
                 <article class="pet-card">
+                    <span class="pet-badge badge-gold">Gold</span>
                     <img src="Poodle.jpg" alt="Harry the Poodle">
                     <div class="pet-info">
                         <h3>Harry</h3>
                         <div class="pet-details">
-                            <span>Breed: Poodle</span>
-                            <span>Gender: Male</span>
-                            <span>Age: 8 weeks</span>
+                            <span class="pet-detail-item">Poodle</span>
+                            <span class="pet-detail-item">Male</span>
+                            <span class="pet-detail-item">8 weeks</span>
                         </div>
-                         <div class="pet-actions">
-                            <a href="#" class="btn btn-secondary">View Price</a>
-                            <a href="#" class="btn">View Details</a>
+                        <p>Smart and friendly Poodle puppy. Easy to train and very loyal.</p>
+                        <div class="pet-actions">
+                            <a href="tel:+918882845702" class="btn btn-call btn-small">📞 Call</a>
+                            <a href="https://wa.me/918882845702" target="_blank" class="btn btn-whatsapp btn-small">💬
+                                WhatsApp</a>
+                            <a href="available-pets.html" class="btn btn-primary btn-small">View Details</a>
                         </div>
                     </div>
                 </article>
             </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="available-pets.html" class="btn btn-primary">View All Pets</a>
+            </div>
         </section>
-        
+
+        <!-- Why Choose Us -->
+        <section class="content-section why-choose-us">
+            <h2>Why Choose Sharma's Pet Nation?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🏆</div>
+                    <h3>Ethical Breeders</h3>
+                    <p>We work only with verified, ethical breeders who prioritize animal welfare.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏠</div>
+                    <h3>Home Delivery</h3>
+                    <p>Safe and comfortable delivery of your new companion right to your doorstep.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💉</div>
+                    <h3>Health Checked</h3>
+                    <p>All pets are vaccinated, dewormed, and health-certified before adoption.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Wide Selection</h3>
+                    <p>Choose from the widest range of breeds and species available in Delhi NCR.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3>24/7 Support</h3>
+                    <p>Our expert team is always available to help with any questions or concerns.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✅</div>
+                    <h3>Verified Owners</h3>
+                    <p>Join thousands of happy pet parents who trusted us with their adoption journey.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Steps to Bring Home Your Furry Friend -->
         <section class="content-section">
             <h2>Steps to Bring Home Your Furry Friend</h2>
             <div class="steps-container">
                 <div class="step">
                     <div class="step-icon">1</div>
                     <h3>Choose Your Friend</h3>
-                    <p>Select from the widest choice of breeds available.</p>
+                    <p>Select from the widest choice of breeds available. Browse our gallery and find your perfect
+                        match.</p>
                 </div>
                 <div class="step">
                     <div class="step-icon">2</div>
                     <h3>Easy Booking Process</h3>
-                    <p>Complete your booking online with our simple process.</p>
+                    <p>Complete your booking online with our simple process. Fill out the adoption form and we'll guide
+                        you.</p>
                 </div>
                 <div class="step">
                     <div class="step-icon">3</div>
                     <h3>Safe & Sound Delivery</h3>
-                    <p>We handle everything to bring your new pet home safely.</p>
+                    <p>We handle everything to bring your new pet home safely. Enjoy peace of mind with our delivery
+                        service.</p>
                 </div>
             </div>
         </section>
 
     </main>
 
+    <!-- Footer -->
     <footer>
         <div class="footer-container">
-            <div class="social-links">
-            <a href="https://www.facebook.com/profile.php?id=61579199668724" target="_blank" rel="noopener">Facebook</a>
-            
-            <a href="https://www.instagram.com/sharmapetnation" target="_blank" rel="noopener">Instagram</a>
-            <a href="https://wa.me/8882845702" target="_blank" rel="noopener">WhatsApp</a>
-                
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Sharma's Pet Nation</h3>
+                    <p>India's most trusted pet adoption and care platform. Bringing joy to families, one paw at a time.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61579199668724" target="_blank"
+                            rel="noopener">Facebook</a>
+                        <a href="https://www.instagram.com/sharmapetnation" target="_blank" rel="noopener">Instagram</a>
+                        <a href="https://wa.me/8882845702" target="_blank" rel="noopener">WhatsApp</a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="index.html">Home</a></p>
+                    <p><a href="available-pets.html">Available Pets</a></p>
+                    <p><a href="adoption.html">Adoption</a></p>
+                    <p><a href="shop.html">Shop</a></p>
+                    <p><a href="support.html">Support</a></p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Pet Categories</h3>
+                    <p><a href="dogs.html">Dogs</a></p>
+                    <p><a href="cats.html">Cats</a></p>
+                    <p><a href="available-pets.html">All Pets</a></p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p>📞 +91 8882845702</p>
+                    <p>📧 info@sharmapetnation.com</p>
+                    <p>📍 Delhi NCR, India</p>
+                </div>
             </div>
-            <p>Copyright © 2025 Sharma's pets nation. All rights reserved.</p>
+
+            <div class="footer-bottom">
+                <p>Copyright © 2025 Sharma's Pet Nation. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
     <script src="js/app.js"></script>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Hero Slider -->
+    <script>
+        const heroSwiper = new Swiper('.hero-slider', {
+            // Auto-play configuration
+            autoplay: {
+                delay: 2000,                    // 2 seconds between slides
+                disableOnInteraction: false,    // Continue after user interaction
+            },
+
+            // Transition settings
+            speed: 500,                         // 500ms transition duration
+            effect: 'slide',                    // Horizontal slide effect
+
+            // Loop settings
+            loop: true,                         // Infinite loop
+
+            // Pagination
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,                // Allow clicking dots to navigate
+                dynamicBullets: false,
+            },
+
+            // Touch/swipe support
+            grabCursor: true,
+            touchRatio: 1,
+
+            // Accessibility
+            a11y: {
+                enabled: true,
+            },
+        });
+    </script>
 </body>
+
 </html>
